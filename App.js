@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <CurrentWeather /> */}
+      <CurrentWeather />
       {/* <UpcomingWeather /> */}
-      <City />
+      {/* <City /> */}
       <StatusBar style="auto" />
     </View>
   )
