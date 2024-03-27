@@ -1,18 +1,9 @@
 import React from 'react'
 import {StatusBar} from 'expo-status-bar'
 import {StyleSheet, View} from 'react-native'
-import CurrentWeather from './src/components/CurrentWeather'
-import UpcomingWeather from './src/components/UpcomingWeather'
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      {/* <CurrentWeather /> */}
-      <UpcomingWeather />
-      <StatusBar style="auto" />
-    </View>
-  )
-}
+import CurrentWeather from '@screens/CurrentWeather'
+import UpcomingWeather from '@screens/UpcomingWeather'
+import City from '@screens/City'
 
 const styles = StyleSheet.create({
   container: {
@@ -22,3 +13,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      {/* <CurrentWeather /> */}
+      {/* <UpcomingWeather /> */}
+      <City />
+      <StatusBar style="auto" />
+    </View>
+  )
+}
