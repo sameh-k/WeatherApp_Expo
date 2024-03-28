@@ -43,7 +43,8 @@ export default function CurrentWeather() {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#fff'
   },
   temp: {
     color: 'black',
@@ -62,7 +63,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
