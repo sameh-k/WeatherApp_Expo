@@ -44,7 +44,7 @@ export default function CurrentWeather() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: 'pink'
   },
   temp: {
     color: 'black',
