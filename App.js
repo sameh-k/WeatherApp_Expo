@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {ActivityIndicator, StyleSheet, View} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import Tabs from '@components/Tabs'
 import {useGetWeather} from 'src/hooks/useGetWeather'
+import ErrorItem from '@components/ErrorItem'
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     flex: 1
   }
 })
-
-// api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 export default function App() {
   const [loading, error, weather] = useGetWeather()
@@ -19,17 +19,21 @@ export default function App() {
     console.log(weather)
   }
 
-  if (loading) {
+  if (weather && weather.list && !loading) {
     return (
-      <View style={styles.container}>
-        <ActivityIndicator size={'large'} color={'blue'} />
-      </View>
+      <NavigationContainer>
+        <Tabs weather={weather} />
+      </NavigationContainer>
     )
   }
 
   return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
+    <View style={styles.container}>
+      {error ? (
+        <ErrorItem />
+      ) : (
+        <ActivityIndicator size={'large'} color={'blue'} />
+      )}
+    </View>
   )
 }

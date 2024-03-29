@@ -10,7 +10,7 @@ import {Feather} from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator()
 
-const Tabs = () => {
+const Tabs = ({weather}) => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -30,7 +30,6 @@ const Tabs = () => {
       }}>
       <Tab.Screen
         name={'CurrentWeather'}
-        component={CurrentWeather}
         options={{
           tabBarIcon: ({focused}) => (
             <Feather
@@ -39,11 +38,11 @@ const Tabs = () => {
               color={focused ? 'tomato' : 'black'}
             />
           )
-        }}
-      />
+        }}>
+        {() => <CurrentWeather weatherData={weather.list[0]} />}
+      </Tab.Screen>
       <Tab.Screen
         name={'UpcomingWeather'}
-        component={UpcomingWeather}
         options={{
           tabBarIcon: ({focused}) => (
             <Feather
@@ -52,11 +51,11 @@ const Tabs = () => {
               color={focused ? 'tomato' : 'black'}
             />
           )
-        }}
-      />
+        }}>
+        {() => <UpcomingWeather weatherData={weather.list} />}
+      </Tab.Screen>
       <Tab.Screen
         name={'City'}
-        component={City}
         options={{
           tabBarIcon: ({focused}) => (
             <Feather
@@ -65,8 +64,9 @@ const Tabs = () => {
               color={focused ? 'tomato' : 'black'}
             />
           )
-        }}
-      />
+        }}>
+        {() => <City weatherData={weather.city} />}
+      </Tab.Screen>
     </Tab.Navigator>
   )
 }
