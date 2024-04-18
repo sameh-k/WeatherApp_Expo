@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "WeatherApp",
-    "slug": "WeatherApp",
+    "slug": "basic-weather",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.samehk.basicweather"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "87a619d5-61d5-420d-9d84-5bbe59792244"
+      }
+    },
+    "owner": "samehk"
   }
 }
